@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+.vertical-spacer {
+  width: 100%;
+  display: block;
+  clear: both;
+  padding-top: 2em;
+}
+
+.vertical-half-spacer {
+  width: 100%;
+  display: block;
+  clear: both;
+  padding-top: 1em;
+}
+
+.centered-middle {
+  /*position: absolute;*/
+  /*top: 50%;*/
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+}
+

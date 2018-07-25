@@ -1,0 +1,9 @@
+<div class="btn-group">
+  <button *ngFor="let button of buttons"
+          (click)="onSelect(button)"
+          [class.btn-primary] = "button.selected"
+          [class.btn-outline-primary] = "!button.selected"
+          class="btn">
+    {{ button.name }}
+  </button>
+</div>
