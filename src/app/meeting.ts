@@ -6,5 +6,6 @@ export class Meeting {
   date: NgbDateStruct;
   tags: string[];
   durration: number;
+  preparationTime: number;
   project: string;
 }

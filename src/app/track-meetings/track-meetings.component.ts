@@ -10,10 +10,14 @@ export class TrackMeetingsComponent implements OnInit {
 
   public meeting: Meeting;
 
-  constructor(){
+  constructor() {
   }
 
   ngOnInit() {
     this.meeting = new Meeting();
+  }
+
+  SelectProject(project: string) {
+    this.meeting.project = project;
   }
 }

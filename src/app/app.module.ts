@@ -6,9 +6,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {LandingComponent} from './landing/landing.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {TrackMeetingsComponent} from './track-meetings/track-meetings.component';
-import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { CheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgbModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    ChartsModule
   ],
   providers: []
 })

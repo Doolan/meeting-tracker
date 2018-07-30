@@ -22,12 +22,17 @@ export class CheckboxButtonsComponent implements OnInit {
       },
       {
         id: 2,
-        name: 'Reoccurring',
+        name: 'Planned',
         selected: false
       },
       {
         id: 3,
-        name: 'Planned',
+        name: 'Multi-tasking',
+        selected: false
+      },
+      {
+        id: 3,
+        name: 'Reoccurring',
         selected: false
       },
       {

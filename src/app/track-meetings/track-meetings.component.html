@@ -30,10 +30,16 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
               <label>Duration</label>
               <div class="input-group">
                 <input type="number" class="form-control" [(ngModel)]="meeting.durration"/>
+              </div>
+            </div>
+            <div class="col-3">
+              <label>Preparation Time</label>
+              <div class="input-group">
+                <input type="number" class="form-control" [(ngModel)]="meeting.preparationTime"/>
               </div>
             </div>
           </div>
@@ -41,11 +47,11 @@
           <div class="row">
             <div class="col-6">
               <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Project</button>
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{meeting.project ? meeting.project : 'Project'}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button class="dropdown-item">Client 1</button>
-                  <button class="dropdown-item">Client 2</button>
-                  <button class="dropdown-item">Internal</button>
+                  <button class="dropdown-item" (click)="SelectProject('Client 1')">Client 1</button>
+                  <button class="dropdown-item" (click)="SelectProject('Client 2')">Client 2</button>
+                  <button class="dropdown-item" (click)="SelectProject('Internal')">Internal</button>
                 </div>
               </div>
             </div>

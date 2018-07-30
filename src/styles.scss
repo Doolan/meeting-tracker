@@ -1,5 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+$primary: #F47920;
+$secondary: #42C1C6;
+$blue: #0066a0;
+$indigo: #274085;
+$red: #E63E25;
+$cyan: #92d6e3;
+$green: #BECC30;
+$orange: #F47920;
+$yellow: #FECF8C;
+$gray: #BFBEBF;
+$gray-dark: #282828;
+
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+$purple: #6f42c1;
+$pink: #e83e8c;
+$teal: #20c997;
+$white: #fff;
+
+
 @import "~bootstrap/scss/bootstrap";
 
 $fa-font-path: "~font-awesome/fonts";
