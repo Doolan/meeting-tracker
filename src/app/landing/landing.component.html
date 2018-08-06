@@ -1,12 +1,23 @@
-<!--<div class="vertical-spacer"></div>-->
-<div class="container centered-middle">
-  <div class="jumbotron">
-    <h1 class="display-4">Meeting Tracker</h1>
-    <p class="lead">Revolutionize Meetings and Reclaim your day!</p>
-    <hr class="my-4">
-    <p>Analyze meeting duration, engagement, and productivity levels and reclaim your time and your day.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
-    </p>
+<div class="landing text-center">
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+    </header>
+
+    <main role="main" class="text-center inner cover">
+      <img src="assets/meetingoptimizerlogo.png" class="rounded d-block"/>
+      <div class="vertical-spacer"></div>
+      <p class="lead">Revolutionize Meetings and Reclaim your day! <br/>Analyze meeting duration, engagement, and productivity levels and reclaim your time and your day.</p>
+      <div class="vertical-spacer"></div>
+      <p class="lead">
+        <a class="btn btn-lg btn-secondary" [routerLink]="['/track']">Get Started</a>
+      </p>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>A <a href="https://www.bp-3.com">BP3 Global</a> Driven Science Fair Project, by Steven Doolan and Ariana Denson</p>
+      </div>
+    </footer>
   </div>
 </div>

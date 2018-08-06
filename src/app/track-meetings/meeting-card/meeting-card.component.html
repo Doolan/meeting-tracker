@@ -1,0 +1,54 @@
+<div class="vertical-spacer"></div>
+<div class="vertical-spacer"></div>
+<div class="vertical-spacer"></div>
+<div class="container-fluid">
+  <div class="meeting-card">
+    <div class="card bg-light" style="width: 25rem;">
+      <div class="card-body">
+        <button type="button" class="btn btn-primary pull-right"><i class="fa fa-pencil"></i></button>
+        <p class="pull-right"></p>
+        <!--<button type="button" class="btn btn-primary pull-right" disabled><i class="fa fa-clock-o"></i> {{meeting.duration}} min</button>-->
+        <h3 class="card-title">
+          {{meeting.title}} <span class="date text-muted">{{meeting.date.month}}/{{meeting.date.day}}/{{meeting.date.year}}</span>
+        </h3>
+        <div class="card-subtitle mb-2 text-muted">
+          {{meeting.project}}
+        </div>
+        <div class="card-text">
+          <button type="button" class="btn btn-primary" disabled><i class="fa fa-clock-o"></i> {{meeting.duration}} min
+          </button>
+          <div class="tags">
+          </div>
+          <div class="vertical-quarter-spacer"></div>
+          <div class="row">
+            <div class="col-6">
+              <label>Rating</label>
+              <ngb-rating [(rate)]="meeting.rating"></ngb-rating>
+            </div>
+            <div class="col-6">
+              <label>Prep Time</label>
+              <div class="input-group">
+                <input type="number" class="form-control" placeholder="" [(ngModel)]="meeting.preparationTime">
+                <div class="input-group-append">
+                  <span class="input-group-text">Minutes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label>Description</label>
+            <div class="input-group">
+              <textarea class="form-control" [(ngModel)]="meeting.description"></textarea>
+            </div>
+          </div>
+          <div class="vertical-quarter-spacer"></div>
+            <app-checkbox-buttons></app-checkbox-buttons>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-outline-success pull-left">Save & Add</button>
+        <button class="btn btn-outline-danger pull-right">Discard</button>
+      </div>
+    </div>
+  </div>
+</div>

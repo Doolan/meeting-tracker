@@ -20,16 +20,16 @@ export class CheckboxButtonsComponent implements OnInit {
         name: 'Billable',
         selected: false
       },
-      {
-        id: 2,
-        name: 'Planned',
-        selected: false
-      },
-      {
-        id: 3,
-        name: 'Multi-tasking',
-        selected: false
-      },
+      // {
+      //   id: 2,
+      //   name: 'Planned',
+      //   selected: false
+      // },
+      // {
+      //   id: 3,
+      //   name: 'Multi-tasking',
+      //   selected: false
+      // },
       {
         id: 3,
         name: 'Reoccurring',

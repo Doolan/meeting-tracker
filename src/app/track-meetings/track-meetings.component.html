@@ -33,7 +33,7 @@
             <div class="col-3">
               <label>Duration</label>
               <div class="input-group">
-                <input type="number" class="form-control" [(ngModel)]="meeting.durration"/>
+                <input type="number" class="form-control" [(ngModel)]="meeting.duration"/>
               </div>
             </div>
             <div class="col-3">
@@ -47,7 +47,9 @@
           <div class="row">
             <div class="col-6">
               <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{meeting.project ? meeting.project : 'Project'}}</button>
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{meeting.project ?
+                  meeting.project : 'Project'}}
+                </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                   <button class="dropdown-item" (click)="SelectProject('Client 1')">Client 1</button>
                   <button class="dropdown-item" (click)="SelectProject('Client 2')">Client 2</button>
@@ -75,4 +77,61 @@
       <button class="btn btn-primary">Submit</button>
     </div>
   </div>
+
+
+  <button class="btn btn-primary" (click)="launchModal(content)">Open Modal</button>
 </div>
+<ng-template #content let-c="close" let-dd="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dd('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <label for="meeting-title">Title</label>
+        <div class="input-group">
+          <input type="text" [(ngModel)]="meeting.title" class="form-control" placeholder="">
+        </div>
+      </div>
+    </div>
+    <div class="vertical-half-spacer"></div>
+    <label>Date</label>
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="meeting.date" ngbDatepicker #dp="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
+          <i class="fa fa-calendar"></i>
+        </button>
+      </div>
+    </div>
+    <div class="vertical-half-spacer"></div>
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="modalDrop" ngbDropdownToggle>{{meeting.project ?
+        meeting.project : 'Project'}}
+      </button>
+      <div ngbDropdownMenu aria-labelledby="modalDrop">
+        <button class="dropdown-item" (click)="SelectProject('Client 1')">Client 1</button>
+        <button class="dropdown-item" (click)="SelectProject('Client 2')">Client 2</button>
+        <button class="dropdown-item" (click)="SelectProject('Internal')">Internal</button>
+      </div>
+    </div>
+    <div class="vertical-half-spacer"></div>
+    <label>Duration</label>
+    <div class="input-group">
+      <input type="number" class="form-control" [(ngModel)]="meeting.duration"/>
+      <div class="input-group-append">
+        <span class="input-group-text">
+          <i class="fa fa-clock-o"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+<p style="color: white">{{closeResult}}</p>
