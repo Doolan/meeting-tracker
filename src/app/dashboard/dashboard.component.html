@@ -1,28 +1,28 @@
-<div class="container-fluid">
+<div class="dashboard-component container-fluid">
   <h2 class="text-center">Meeting Statistics</h2>
   <div class="vertical-spacer"></div>
 
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <label>Start Date</label>
+        <label class="text-white">Start Date</label>
         <div class="input-group">
           <input class="form-control" placeholder="yyyy-mm-dd"
                  name="startDate" ngbDatepicker #d="ngbDatepicker">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+            <button class="btn btn-secondary" (click)="d.toggle()" type="button">
               <i class="fa fa-calendar"></i>
             </button>
           </div>
         </div>
       </div>
       <div class="col-6">
-        <label>End Date</label>
+        <label class="text-white">End Date</label>
         <div class="input-group">
           <input class="form-control" placeholder="yyyy-mm-dd"
                  name="endDate" ngbDatepicker #d="ngbDatepicker">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+            <button class="btn btn-secondary" (click)="d.toggle()" type="button">
               <i class="fa fa-calendar"></i>
             </button>
           </div>
@@ -32,58 +32,76 @@
   </div>
   <div class="vertical-spacer"></div>
   <div class="vertical-spacer"></div>
-  <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">
-            Meeting Breakdown
-          </h5>
-        </div>
-        <div class="card-body">
-          <label>Billable</label>
-          <p>
-            <ngb-progressbar showValue="true" type="primary" [value]="75" height="2rem"></ngb-progressbar>
-          </p>
-          <label>Planned</label>
-          <p>
-            <ngb-progressbar showValue="true" type="secondary" [value]="80" height="2rem"></ngb-progressbar>
-          </p>
-          <label>Multi-tasking</label>
-          <p>
-            <ngb-progressbar showValue="true" type="success" [value]="30" height="2rem"></ngb-progressbar>
-          </p>
-          <label>Reoccurring</label>
-          <p>
-            <ngb-progressbar showValue="true" type="info" [value]="42" height="2rem"></ngb-progressbar>
-          </p>
-          <label>Required</label>
-          <p>
-            <ngb-progressbar showValue="true" type="green" [value]="25" height="2rem"></ngb-progressbar>
-          </p>
+  <div class="card-columns">
+    <!--<div class="row">-->
+    <!--<div class="col-6">-->
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          Meeting Breakdown by Type
+        </h5>
+      </div>
+      <div class="card-body">
+        <label>Billable</label>
+        <p>
+          <ngb-progressbar showValue="true" type="primary" [value]="75" height="2rem"></ngb-progressbar>
+        </p>
+        <label>Planned</label>
+        <p>
+          <ngb-progressbar showValue="true" type="secondary" [value]="80" height="2rem"></ngb-progressbar>
+        </p>
+        <!--<label>Multi-tasking</label>-->
+        <!--<p>-->
+        <!--<ngb-progressbar showValue="true" type="success" [value]="30" height="2rem"></ngb-progressbar>-->
+        <!--</p>-->
+        <label>Reoccurring</label>
+        <p>
+          <ngb-progressbar showValue="true" type="success" [value]="42" height="2rem"></ngb-progressbar>
+        </p>
+        <label>Required</label>
+        <p>
+          <ngb-progressbar showValue="true" type="info" [value]="25" height="2rem"></ngb-progressbar>
+        </p>
+      </div>
+    </div>
+    <!--</div>-->
+    <!--<div class="col-6">-->
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          Meeting Breakdown by Weekday
+        </h5>
+      </div>
+      <div class="card-body">
+        <div style="display: block;">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"
+                  [colors]="colors"></canvas>
         </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">
-            Meeting Breakdown
-          </h5>
-        </div>
-        <div class="card-body">
-          <div style="display: block;">
-            <canvas baseChart
-                    [datasets]="barChartData"
-                    [labels]="barChartLabels"
-                    [options]="barChartOptions"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"
-                    [colors]="colors"></canvas>
-          </div>
-        </div>
+    <div class="card">
+      <div class="card-header">
+      <h5 class="card-title">
+        Aggregate Meeting Time by Week
+      </h5>
+    </div>
+      <div class="card-body">
+        <!--[options]="lineChartOptions"-->
+        <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+                [colors]="lineColors"></canvas>
       </div>
     </div>
   </div>
