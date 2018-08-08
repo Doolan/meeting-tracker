@@ -1,6 +1,6 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Meeting} from '../meeting';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {ModalDismissReasons, NgbDateStruct, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-track-meetings',
@@ -9,27 +9,12 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class TrackMeetingsComponent implements OnInit {
 
+  private static selectedMeeting: Meeting;
+  private static edit = false;
   public meeting: Meeting;
-  closeResult: string;
+  public static meetings: Meeting[];
+  private closeResult: string;
 
-  constructor(private modalService: NgbModal) {
-  }
-
-  ngOnInit() {
-    this.meeting = new Meeting();
-  }
-
-  SelectProject(project: string) {
-    this.meeting.project = project;
-  }
-
-  public launchModal(content) {
-    this.modalService.open(content, {centered: true}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${TrackMeetingsComponent.getDismissReason(reason)}`;
-    });
-  }
 
   private static getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -37,7 +22,96 @@ export class TrackMeetingsComponent implements OnInit {
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
       return 'by clicking on a backdrop';
     } else {
-      return  `with: ${reason}`;
+      return `with: ${reason}`;
     }
+  }
+
+  constructor(private modalService: NgbModal) {
+    // this.meeting = new Meeting;
+
+    TrackMeetingsComponent.meetings = [
+      {
+        title: 'Stand Up',
+        date: {year: 2018, month: 7, day: 31},
+        project: 'Charter Communications',
+        duration: 30,
+        rating: null,
+        preparationTime: 0,
+        description: '',
+        tags: [],
+      },
+      {
+        title: 'Stand Up',
+        date: {year: 2018, month: 8, day: 1},
+        project: 'Charter Communications',
+        duration: 30,
+        rating: null,
+        preparationTime: 0,
+        description: '',
+        tags: [],
+      },
+      {
+        title: 'Stand Up',
+        date: {year: 2018, month: 8, day: 3},
+        project: 'Charter Communications',
+        duration: 30,
+        rating: null,
+        preparationTime: 0,
+        description: '',
+        tags: [],
+      },
+    ];
+  }
+
+  ngOnInit() {
+    this.meeting = new Meeting();
+    this.meeting.date = this.buildToday();
+  }
+
+  SelectProject(project: string) {
+    this.meeting.project = project;
+  }
+
+  public launchModal(content) {
+    if (TrackMeetingsComponent.edit) {
+      this.meeting = TrackMeetingsComponent.selectedMeeting;
+    }
+    this.modalService.open(content, {centered: true}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      if (!TrackMeetingsComponent.edit) {
+        TrackMeetingsComponent.meetings.push(this.meeting);
+      }
+      this.meeting = new Meeting();
+      this.meeting.date = this.buildToday();
+      TrackMeetingsComponent.edit = false;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${TrackMeetingsComponent.getDismissReason(reason)}`;
+      // console.log(this.meeting);
+      this.meeting = new Meeting();
+      this.meeting.date = this.buildToday();
+      TrackMeetingsComponent.edit = false;
+    });
+  }
+
+  public launchEdit(cardMeeting: Meeting) {
+    TrackMeetingsComponent.edit = true;
+    TrackMeetingsComponent.selectedMeeting = cardMeeting;
+    const element: HTMLElement = document.getElementById('modalLaunch') as HTMLElement;
+    element.click();
+  }
+
+  public removeFromList(meeting: Meeting) {
+    TrackMeetingsComponent.meetings = TrackMeetingsComponent.meetings
+      .filter(item =>  item !== meeting);
+  }
+
+  private buildToday(): NgbDateStruct {
+    const date = new Date();
+    const ngbDateStruct = { day: date.getUTCDate(), month: date.getUTCMonth() + 1, year: date.getUTCFullYear()};
+    return ngbDateStruct;
+  }
+
+  public getMeetings() {
+    return TrackMeetingsComponent.meetings;
   }
 }

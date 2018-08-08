@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Meeting} from '../../meeting';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-meeting-card',
@@ -9,19 +8,23 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 })
 export class MeetingCardComponent implements OnInit {
 
-  public meeting: Meeting;
+  @Input() launchModal: any;
+  @Input() meeting: Meeting;
+  @Input() removeFromList: any;
+
+  // public meeting: Meeting;
   currentRate = 8;
 
   constructor() { }
 
   ngOnInit() {
-    this.meeting = new Meeting();
-    this.meeting.title = 'Stand Up';
-    this.meeting.project = 'Charter Communications';
-    const date: NgbDateStruct = {year: 2018, month: 8, day: 3 };
-    this.meeting.date = date;
-    this.meeting.duration = 30;
-    this.meeting.preparationTime = 5;
   }
 
+  public editCard() {
+    this.launchModal(this.meeting);
+  }
+
+  public remove() {
+    this.removeFromList(this.meeting);
+  }
 }

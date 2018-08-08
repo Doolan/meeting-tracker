@@ -1,5 +1,9 @@
-<div class="container centered-middle">
-  <div class="card">
+<div class="container-fluid">
+  <div class="vertical-spacer"></div>
+  <div class="vertical-spacer"></div>
+  <div class="vertical-spacer"></div>
+  <!--<div class="vertical-spacer"></div>-->
+  <!--<div class="card">
     <div class="card-header">
       <h5 class="card-title">
         Log a New Meeting
@@ -47,8 +51,7 @@
           <div class="row">
             <div class="col-6">
               <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{meeting.project ?
-                  meeting.project : 'Project'}}
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{meeting.project ? meeting.project : 'Project'}}
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                   <button class="dropdown-item" (click)="SelectProject('Client 1')">Client 1</button>
@@ -76,10 +79,16 @@
     <div class="card-footer text-right">
       <button class="btn btn-primary">Submit</button>
     </div>
-  </div>
+  </div>-->
+<div class="container">
+  <button class="btn btn-primary pull-right" id="modalLaunch" (click)="launchModal(content)">New Card</button>
+  <div class="clearfix vertical-quarter-spacer"></div>
+</div>
 
+<div class="card-deck">
+  <app-meeting-card *ngFor="let meetingCurrent of getMeetings()" [meeting]="meetingCurrent" [launchModal]="launchEdit" [removeFromList]="removeFromList"></app-meeting-card>
+</div>
 
-  <button class="btn btn-primary" (click)="launchModal(content)">Open Modal</button>
 </div>
 <ng-template #content let-c="close" let-dd="dismiss">
   <div class="modal-header">
@@ -91,7 +100,7 @@
   <div class="modal-body">
     <div class="row">
       <div class="col">
-        <label for="meeting-title">Title</label>
+        <label>Title</label>
         <div class="input-group">
           <input type="text" [(ngModel)]="meeting.title" class="form-control" placeholder="">
         </div>
@@ -134,4 +143,4 @@
     <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
   </div>
 </ng-template>
-<p style="color: white">{{closeResult}}</p>
+

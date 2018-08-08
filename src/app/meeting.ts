@@ -2,11 +2,22 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 export class Meeting {
   title: string;
-  description: string;
   date: NgbDateStruct;
-  tags: string[];
-  duration: number;
-  preparationTime: number;
   project: string;
+  duration: number;
   rating: number;
+  preparationTime: number;
+  description: string;
+  tags: string[];
 }
+
+//{
+//   title: 'Stand Up',
+//     date: {year: 2018, month: 8, day: 3 },
+//   project: 'Charter Communications',
+//     duration: 30,
+//   rating: null,
+//   preparationTime: 0,
+//   description: '',
+//   tags: [],
+// };
