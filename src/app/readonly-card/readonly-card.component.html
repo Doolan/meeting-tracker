@@ -1,0 +1,36 @@
+
+<div class="meeting-card">
+  <div class="card bg-light" style="width: 25rem;">
+    <div class="card-body">
+      <h3 class="card-title">
+        {{meeting.title}} <span class="date text-muted">{{meeting.date.month}}/{{meeting.date.day}}/{{meeting.date.year}}</span>
+      </h3>
+      <div class="card-subtitle mb-2 text-muted">
+        {{meeting.project}}
+      </div>
+      <div class="card-text">
+        <button type="button" class="btn btn-primary" disabled><i class="fa fa-clock-o"></i> {{meeting.duration}} min
+        </button>
+        <div class="tags">
+        </div>
+        <div class="vertical-quarter-spacer"></div>
+        <div class="row">
+          <div class="col-8">
+            <label>Rating</label>
+            <ngb-rating [(rate)]="meeting.rating" [readonly]="true"></ngb-rating>
+          </div>
+          <div class="col-4">
+            <button type="button" class="btn btn-secondary" disabled><i class="fa fa-clock-o"></i> {{meeting.preparationTime}} min
+            </button>
+              </div>
+        </div>
+        <div class="well">
+         <p>{{meeting.description}}</p>
+        </div>
+        <div class="vertical-quarter-spacer"></div>
+        <app-checkbox-buttons></app-checkbox-buttons>
+      </div>
+    </div>
+    </div>
+  </div>
+

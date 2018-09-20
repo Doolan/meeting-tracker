@@ -13,6 +13,8 @@ import {LandingComponent} from './landing/landing.component';
 import {ChartsModule} from 'ng2-charts';
 import {TrackMeetingsComponent} from './track-meetings/track-meetings.component';
 import {MeetingCardComponent} from './track-meetings/meeting-card/meeting-card.component';
+import { DrillDownComponent } from './drill-down/drill-down.component';
+import { ReadonlyCardComponent } from './readonly-card/readonly-card.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {MeetingCardComponent} from './track-meetings/meeting-card/meeting-card.c
     CheckboxButtonsComponent,
     DashboardComponent,
     MeetingCardComponent,
-    GoogleCalenderComponent
+    GoogleCalenderComponent,
+    DrillDownComponent,
+    ReadonlyCardComponent
   ],
   imports: [
     BrowserModule,

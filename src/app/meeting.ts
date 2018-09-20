@@ -14,7 +14,7 @@ export class Meeting {
 //{
 //   title: 'Stand Up',
 //     date: {year: 2018, month: 8, day: 3 },
-//   project: 'Charter Communications',
+//   project: 'Telecom Communications',
 //     duration: 30,
 //   rating: null,
 //   preparationTime: 0,

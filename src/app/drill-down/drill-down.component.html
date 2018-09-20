@@ -1,0 +1,58 @@
+<div class="vertical-spacer"></div>
+<div class="vertical-spacer"></div>
+<div class="vertical-spacer"></div>
+<div class="container-fluid drill-down">
+  <div class="row">
+    <div class="col-3 card-container">
+        <app-readonly-card *ngFor="let meeting of meetings" [meeting]="meeting"></app-readonly-card>
+    </div>
+    <div class="col-9">
+      <!--<div class="card-columns">-->
+        <div class="card bg-light main-card">
+          <div class="card-header">
+          <h2 class="text-center">Week Breakdown</h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <h3 class="text-center">1.75 Hours (Billable Meetings)</h3>
+                <div class="vertical-half-spacer"></div>
+                <div style="display: block">
+                  <canvas baseChart
+                          [data]="doughnutBilliableChartData"
+                          [labels]="doughnutChartLabels"
+                          [chartType]="doughnutChartType"
+                          [colors]="colors"
+                  ></canvas>
+                </div>
+                <div class="vertical-spacer"></div>
+                <div class="vertical-spacer"></div>
+                <h2 class="card-subtitle text-center">6.33 Avg Rating</h2>
+              </div>
+              <div class="col-6">
+                <h3 class="text-center">8.33 Hours (Non-Billable Meetings)</h3>
+                <div class="vertical-half-spacer"></div>
+                <div style="display:block">
+                <canvas baseChart
+                        [data]="doughnutInternalChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        [colors]="colors"></canvas>
+              </div>
+                <div class="vertical-spacer"></div>
+                <div class="vertical-spacer"></div>
+                <h2 class="card-subtitle text-center">7.33 Avg Rating</h2>
+            </div>
+            </div>
+          </div>
+        <!--</div>-->
+          <canvas baseChart
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [chartType]="lineChartType"
+                  [colors]="lineColors"></canvas>
+        </div>
+    </div>
+  </div>
+</div>

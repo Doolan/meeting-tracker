@@ -71,11 +71,7 @@ export class DashboardComponent implements OnInit {
   public lineColors = [
     {
       backgroundColor: 'rgba(255, 138, 53,0.60)',
-      borderColor: '#F47920',
-      // pointBackgroundColor: 'rgba(148,159,177,1)',
-      // pointBorderColor: '#fff',
-      // pointHoverBackgroundColor: '#fff',
-      // pointHoverBorderColor: 'rgba(148,159,177,0.5)'
+      borderColor: '#F47920'
     },
     {
       backgroundColor: 'rgba(66, 193, 198,0.5)',

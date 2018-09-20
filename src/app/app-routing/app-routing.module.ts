@@ -6,14 +6,16 @@ import {TrackMeetingsComponent} from '../track-meetings/track-meetings.component
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {MeetingCardComponent} from '../track-meetings/meeting-card/meeting-card.component';
 import {GoogleCalenderComponent} from '../google-calender/google-calender.component';
+import {DrillDownComponent} from '../drill-down/drill-down.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/landing', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'pastWeek', component: DrillDownComponent},
   {path: 'landing', component: LandingComponent},
   {path: 'track', component: TrackMeetingsComponent},
-  {path: 'card', component: MeetingCardComponent},
-  {path: 'google', component: GoogleCalenderComponent}
+  // {path: 'card', component: MeetingCardComponent},
+  // {path: 'google', component: GoogleCalenderComponent}
 ];
 
 @NgModule({
